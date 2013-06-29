@@ -11,7 +11,7 @@
 (test-exn  "Check that deletion works"
            (λ [ex] (string=? "404" (exn-message ex)))
            (λ [] (let* ([k (put testbucket "TEST" ctype.text)]
-                  [x (delete testbucket k)])
+                        [x (delete testbucket k)])
              
              (sleep 5) ; This is ugly but we simply have to wait for riak to complete the delete op.
              (get k testbucket))))
